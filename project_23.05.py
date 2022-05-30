@@ -12,14 +12,10 @@ from yaweather import YaWeather
 #Присваивает значение 0 ПУСТОМУ, 1 ДЕРЕВУ и 2 ОГНЮ. Каждая ячейка в сетке представляет собой
 # aприсвоено одно из этих значений.
 EMPTY, TREE, FIRE, WATER, ASH = 0, 1, 2, 3, 4
-# colors_list содержит цвета, используемые в визуализации: коричневый для ПУСТОГО,
-# темно-зеленый для ДЕРЕВА и оранжевый для ОГНЯ. Обратите внимание, что список должен быть на 1 больше
-# чем количество различных значений в массиве. Также обратите внимание, что 4-й век
-# (‘оранжевый’) определяет цвет огня.
 #colors_list = [(0.2,0,0), (0,0.5,0), (1,0,0), 'red', 'blue', 'gray']
 colors_list = [(0.2,0,0), (0,0.5,0),  'red', 'blue', 'gray']
 cmap = colors.ListedColormap(colors_list)
-# Список границ также должен быть на единицу больше, чем количество различных значений в сеточный массив.
+# Список границ должен быть на единицу больше, чем количество различных значений в сеточном массив.
 bounds = [0, 1, 2, 3, 4, 5]
 # Сопоставляет цвета в colors_list с ячейками, определенными границами; данные внутри ячейки сопоставляется цвету с тем же индексом.
 norm = colors.BoundaryNorm(bounds, cmap.N)
@@ -110,7 +106,7 @@ def eden_b_step(array):
                     array[ix,iy] = ASH
         return array
     else:
-        __t = tuple(random.choice(list_var))  # convert to tuple so it can be used as array coordinate values
+        __t = tuple(random.choice(list_var))  # convert to tuple
         array[__t] = FIRE
         return array
 
