@@ -26,7 +26,7 @@ norm = colors.BoundaryNorm(bounds, cmap.N)
 
 def get_weather():
 
-    y = YaWeather(api_key='4c4303f5-e3b7-4d3e-8664-34e7d8e70f85')
+    y = YaWeather(api_key='key')
     #координаты впадения реки Олёмка в Лену
     res = y.informers(coordinates=(60.420501, 120.936266))
     direct=res.fact.wind_dir
