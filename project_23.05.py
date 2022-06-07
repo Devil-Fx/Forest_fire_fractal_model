@@ -9,10 +9,7 @@ from yaweather import YaWeather
 
 
 
-#Присваивает значение 0 ПУСТОМУ, 1 ДЕРЕВУ и 2 ОГНЮ. Каждая ячейка в сетке представляет собой
-# aприсвоено одно из этих значений.
 EMPTY, TREE, FIRE, WATER, ASH = 0, 1, 2, 3, 4
-#colors_list = [(0.2,0,0), (0,0.5,0), (1,0,0), 'red', 'blue', 'gray']
 colors_list = [(0.2,0,0), (0,0.5,0),  'red', 'blue', 'gray']
 cmap = colors.ListedColormap(colors_list)
 # Список границ должен быть на единицу больше, чем количество различных значений в сеточном массив.
@@ -84,7 +81,7 @@ def eden_b_step(array):
                     array[ix,iy] = ASH
         return array
     else:
-        __t = tuple(random.choice(list_var))  # convert to tuple
+        __t = tuple(random.choice(list_var))  # В кортеж для удобства
         array[__t] = FIRE
         return array
 
@@ -171,6 +168,5 @@ forest_fraction = 1
 # Размер леса (количество ячеек в направлениях x и y) для тестовой области.
 nx, ny = 200, 200
 #размер леса в распознаном изображении (необходимо для сжатия изображения)
-# Настраивает размер фигуры.
 
 show_forest()
