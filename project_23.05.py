@@ -14,7 +14,6 @@ colors_list = [(0.2,0,0), (0,0.5,0),  'red', 'blue', 'gray']
 cmap = colors.ListedColormap(colors_list)
 # Список границ должен быть на единицу больше, чем количество различных значений в сеточном массив.
 bounds = [0, 1, 2, 3, 4, 5]
-# Сопоставляет цвета в colors_list с ячейками, определенными границами; данные внутри ячейки сопоставляется цвету с тем же индексом.
 norm = colors.BoundaryNorm(bounds, cmap.N)
 
 def get_weather():
