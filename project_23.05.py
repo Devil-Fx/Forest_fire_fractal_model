@@ -57,8 +57,6 @@ def craate_test_forest():
     #X[10:90, 80:85] = WATER
     return X
 
-
-
 def eden_b_step(array):
 
     list_var = []
@@ -83,6 +81,30 @@ def eden_b_step(array):
         __t = tuple(random.choice(list_var))  # В кортеж для удобства
         array[__t] = FIRE
         return array
+    
+def iterate(X): 
+    X1 = np.zeros((ny, nx))
+    #X1[50,50] = FIRE
+    for ix in range(1,nx-1):         
+        for iy in range(1,ny-1):            
+            if X[iy,ix] == WATER:                 
+                X1[iy,ix] = WATER
+            if X[iy,ix] == ASH:
+                X1[iy,ix] = ASH
+			#if X[iy,ix] == EMPTY and np.random.random() <= p:                 
+			#	X1[iy,ix] = TREE            
+            if X[iy,ix] == TREE:                 
+                X1[iy,ix] = TREE                                  
+                for i in range(0,7):                    
+					# Смещение огня, распространяющегося в направлении ветра.                  
+                    if X[iy+NY[i],ix+NX[i]] == FIRE and np.random.random()<=NZ[i]:                       
+                        X1[iy,ix] = FIRE 
+                        X1[iy+NY[i],ix+NX[i]] = ASH
+                        break                 
+				#else:                     
+					#if np.random.random() <= f:                        
+						#X1[50,50] = FIRE       
+    return X1
 
 def parts_per_radius(sq1,r):
     M=0
